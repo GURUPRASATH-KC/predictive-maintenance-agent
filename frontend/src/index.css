@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root {
+  height: 100%;
+}
+
+:root {
+  color-scheme: dark;
+  --surface: #0B1220;
+  --surface-panel: #111A2E;
+  --surface-card: #151F35;
+  --surface-border: #22304A;
+  --surface-muted: #94A3B8;
+  --text-primary: #F8FAFC;
+  --text-secondary: #94A3B8;
+  --bg-body: #070D1A;
+  --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 8px 24px -8px rgba(0,0,0,0.35);
+  --input-bg: #111A2E;
+  --input-border: #22304A;
+  --card-border: rgba(148,163,184,0.15);
+}
+
+.light {
+  color-scheme: light;
+  --surface: #F8FAFC;
+  --surface-panel: #FFFFFF;
+  --surface-card: #FFFFFF;
+  --surface-border: #E2E8F0;
+  --surface-muted: #64748B;
+  --text-primary: #111827;
+  --text-secondary: #475569;
+  --bg-body: #F8FAFC;
+  --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  --input-bg: #F8FAFC;
+  --input-border: #CBD5E1;
+  --card-border: rgba(147, 197, 253, 0.3);
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  min-height: 100%;
+  background: var(--bg-body);
+  color: var(--text-primary);
+}
+
+body.light {
+  background: var(--bg-body);
+  color: var(--text-primary);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(100,116,139,0.4);
+  border-radius: 8px;
+}
+
+.card {
+  @apply rounded-xl2;
+  background: var(--surface-card);
+  border: 1px solid var(--surface-border);
+  box-shadow: var(--shadow);
+}
+
+.badge-normal {
+  color: #10B981;
+  background: rgba(16,185,129,0.12);
+  border: 1px solid rgba(16,185,129,0.2);
+}
+.badge-warning {
+  color: #F59E0B;
+  background: rgba(245,158,11,0.12);
+  border: 1px solid rgba(245,158,11,0.2);
+}
+.badge-critical {
+  color: #EF4444;
+  background: rgba(239,68,68,0.12);
+  border: 1px solid rgba(239,68,68,0.2);
+}
+
+.bg-surface { background: var(--surface); }
+.bg-surface-panel { background: var(--surface-panel); }
+.bg-surface-card { background: var(--surface-card); }
+.border-surface-border { border-color: var(--surface-border); }
+.text-slate-200 { color: var(--text-primary); }
+.text-slate-300 { color: var(--text-secondary); }
+.text-slate-400 { color: var(--surface-muted); }
+.text-slate-500 { color: var(--surface-muted); }
+
+input, select, textarea {
+  background: var(--input-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--input-border);
+}
+
+button, select, input {
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
