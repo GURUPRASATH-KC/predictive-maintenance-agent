@@ -13,6 +13,12 @@ class Settings(BaseSettings):
     openai_api_key: str = ""
     frontend_origin: str = "http://localhost:5173"
 
+    def get_cors_origins(self) -> list[str]:
+        origins = {self.frontend_origin, "http://localhost:5173", "http://127.0.0.1:5173"}
+        if self.frontend_origin and self.frontend_origin not in origins:
+            origins.add(self.frontend_origin)
+        return sorted(origins)
+
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
 
