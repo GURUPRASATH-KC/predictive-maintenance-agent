@@ -1,9 +1,3 @@
-"""
-Predictive Maintenance Agent — FastAPI application entrypoint.
-
-Run locally with:
-    uvicorn app.main:app --reload --port 8000
-"""
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
@@ -36,7 +30,10 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.get_cors_origins(),
+    allow_origins=[
+        "http://localhost:5173",
+        "https://predictive-maintenance-agent-kappa.vercel.app",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
